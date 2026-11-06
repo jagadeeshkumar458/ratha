@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="te">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ratha · రథ</title>
+  <meta name="description" content="Ratha — life guidance from the Bhagavad Gita and Ramayana, in Telugu and English.">
+  <meta name="theme-color" content="#1E2A55">
+  <link rel="icon" href="assets/wheel.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@400;500;600&family=Tiro+Telugu:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <button class="brand" id="homeBtn" aria-label="Ratha home">
+      <svg class="wheel wheel-sm" aria-hidden="true"><use href="#wheel"/></svg>
+      <span class="wordmark">రథ</span>
+      <span class="wordmark-en">Ratha</span>
+    </button>
+    <nav class="top-actions">
+      <button class="ghost" id="newChatBtn">కొత్త chat</button>
+      <button class="ghost" id="settingsBtn">Settings</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="welcome" id="welcome">
+      <svg class="wheel wheel-hero" aria-hidden="true"><use href="#wheel"/></svg>
+      <h1>మనసులో ఉన్న ప్రశ్న అడగండి.</h1>
+      <p class="lede">Gita, Ramayana ఆధారంగా — ఏం చేయాలి, ఏం చేయకూడదు అని స్పష్టంగా చెప్తాను.</p>
+
+      <figure class="votd" id="votd">
+        <figcaption>ఈ రోజు Gita <span id="votdRef"></span></figcaption>
+        <blockquote id="votdText"></blockquote>
+      </figure>
+
+      <div class="starters">
+        <p class="starters-head">ఇలా అడగొచ్చు</p>
+        <ul id="starters"></ul>
+      </div>
+    </section>
+
+    <ol class="thread" id="thread" aria-live="polite"></ol>
+  </main>
+
+  <form class="composer" id="composer">
+    <label for="input" class="sr-only">మీ ప్రశ్న</label>
+    <textarea id="input" rows="1" placeholder="మీ situation చెప్పండి…" autocomplete="off"></textarea>
+    <button type="submit" class="send" id="sendBtn" aria-label="Send">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button type="button" class="stop" id="stopBtn" hidden>ఆపండి</button>
+  </form>
+  <p class="foot-note">Ratha ఒక AI guide. Life-changing decisions కి మీ పెద్దలు, professionals ని కూడా సంప్రదించండి.</p>
+
+  <dialog id="settings">
+    <form method="dialog" class="settings-form" id="settingsForm">
+      <h2>Settings</h2>
+      <label>
+        <span>Claude API key</span>
+        <input type="password" id="apiKey" placeholder="sk-ant-…" autocomplete="off" spellcheck="false">
+        <small>console.anthropic.com నుండి తీసుకోండి. ఇది ఈ browser లోనే save అవుతుంది, ఎక్కడికీ పంపబడదు — Anthropic కి తప్ప.</small>
+      </label>
+      <label>
+        <span>Model</span>
+        <select id="model">
+          <option value="claude-sonnet-5-5">Claude Sonnet 5.5 — balanced (recommended)</option>
+          <option value="claude-opus-5-5">Claude Opus 5.5 — deepest answers</option>
+          <option value="claude-haiku-5-5">Claude Haiku 5.5 — fastest, cheapest</option>
+        </select>
+      </label>
+      <div class="settings-actions">
+        <button type="button" class="ghost danger" id="clearAll">Chat history clear చేయండి</button>
+        <span class="spacer"></span>
+        <button type="button" class="ghost" id="cancelSettings">Cancel</button>
+        <button type="submit" class="primary" id="saveSettings">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="wheel" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="6"/>
+      <circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
+      <circle cx="50" cy="50" r="9" fill="currentColor"/>
+      <g stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+        <line x1="50" y1="14" x2="50" y2="86"/>
+        <line x1="14" y1="50" x2="86" y2="50"/>
+        <line x1="24.5" y1="24.5" x2="75.5" y2="75.5"/>
+        <line x1="75.5" y1="24.5" x2="24.5" y2="75.5"/>
+        <line x1="36.2" y1="16.7" x2="63.8" y2="83.3"/>
+        <line x1="63.8" y1="16.7" x2="36.2" y2="83.3"/>
+        <line x1="16.7" y1="36.2" x2="83.3" y2="63.8"/>
+        <line x1="83.3" y1="36.2" x2="16.7" y2="63.8"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
